@@ -1,0 +1,563 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1112</width>
+    <height>802</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="font">
+   <font>
+    <family>DejaVu Sans Mono</family>
+    <pointsize>10</pointsize>
+    <weight>50</weight>
+    <italic>false</italic>
+    <bold>false</bold>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>NFA to DFA</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">font: 10pt &quot;DejaVu Sans Mono&quot;;
+</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 255, 255);</string>
+   </property>
+   <widget class="QPushButton" name="predictBtn">
+    <property name="geometry">
+     <rect>
+      <x>490</x>
+      <y>330</y>
+      <width>141</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(255, 255, 255);
+font: 75 16pt &quot;Cambria&quot;;
+background-color:rgb(7, 119, 197);
+border-radius:20px;
+</string>
+    </property>
+    <property name="text">
+     <string>Predict</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="browsePictureBtn">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>40</y>
+      <width>201</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(255, 255, 255);
+font: 75 12pt &quot;Cambria&quot;;
+background-color:rgb(7, 119, 197);
+border-radius:20px;
+</string>
+    </property>
+    <property name="text">
+     <string>Browse Image</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="imgView">
+    <property name="geometry">
+     <rect>
+      <x>450</x>
+      <y>90</y>
+      <width>224</width>
+      <height>224</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>../img.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="predictedText">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>390</y>
+      <width>1071</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(7, 119, 197);
+font: 75 16pt &quot;Cambria&quot;;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="modelv20cb">
+    <property name="geometry">
+     <rect>
+      <x>820</x>
+      <y>130</y>
+      <width>151</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Cambria</family>
+      <pointsize>16</pointsize>
+      <weight>9</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(7, 119, 197);
+font: 75 16pt &quot;Cambria&quot;;</string>
+    </property>
+    <property name="text">
+     <string>Modelv2_0</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="modelv21cb">
+    <property name="geometry">
+     <rect>
+      <x>820</x>
+      <y>170</y>
+      <width>151</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Cambria</family>
+      <pointsize>16</pointsize>
+      <weight>9</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(7, 119, 197);
+font: 75 16pt &quot;Cambria&quot;;</string>
+    </property>
+    <property name="text">
+     <string>Modelv2_1</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="modelv22cb">
+    <property name="geometry">
+     <rect>
+      <x>820</x>
+      <y>210</y>
+      <width>151</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Cambria</family>
+      <pointsize>16</pointsize>
+      <weight>9</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(7, 119, 197);
+font: 75 16pt &quot;Cambria&quot;;</string>
+    </property>
+    <property name="text">
+     <string>Modelv2_2</string>
+    </property>
+   </widget>
+   <widget class="QProgressBar" name="appleProgressBar">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>560</y>
+      <width>941</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QProgressBar {
+                          background-color: rgb(7, 119, 197);
+                          color: white;
+                          border-style: outset;
+                          border-width: 2px;
+                          border-color: #74c8ff;
+                          border-radius: 7px;
+                          text-align: right; }
+QProgressBar::chunk {
+                          background-color: #333333; }</string>
+    </property>
+    <property name="value">
+     <number>0</number>
+    </property>
+   </widget>
+   <widget class="QProgressBar" name="bananaProgressBar">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>600</y>
+      <width>941</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QProgressBar {
+                          background-color: rgb(7, 119, 197);
+                          color: white;
+                          border-style: outset;
+                          border-width: 2px;
+                          border-color: #74c8ff;
+                          border-radius: 7px;
+                          text-align: right; }
+QProgressBar::chunk {
+                          background-color: #333333; }</string>
+    </property>
+    <property name="value">
+     <number>0</number>
+    </property>
+   </widget>
+   <widget class="QProgressBar" name="grapeProgressBar">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>640</y>
+      <width>941</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QProgressBar {
+                          background-color: rgb(7, 119, 197);
+                          color: white;
+                          border-style: outset;
+                          border-width: 2px;
+                          border-color: #74c8ff;
+                          border-radius: 7px;
+                          text-align: right; }
+QProgressBar::chunk {
+                          background-color: #333333; }</string>
+    </property>
+    <property name="value">
+     <number>0</number>
+    </property>
+   </widget>
+   <widget class="QProgressBar" name="mangoProgressBar">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>680</y>
+      <width>941</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QProgressBar {
+                          background-color: rgb(7, 119, 197);
+                          color: white;
+                          border-style: outset;
+                          border-width: 2px;
+                          border-color: #74c8ff;
+                          border-radius: 7px;
+                          text-align: right; }
+QProgressBar::chunk {
+                          background-color: #333333; }</string>
+    </property>
+    <property name="value">
+     <number>0</number>
+    </property>
+   </widget>
+   <widget class="QProgressBar" name="strawberryProgressBar">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>720</y>
+      <width>941</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QProgressBar {
+                          background-color: rgb(7, 119, 197);
+                          color: white;
+                          border-style: outset;
+                          border-width: 2px;
+                          border-color: #74c8ff;
+                          border-radius: 7px;
+                          text-align: right; }
+QProgressBar::chunk {
+                          background-color: #333333; }</string>
+    </property>
+    <property name="value">
+     <number>0</number>
+    </property>
+   </widget>
+   <widget class="QLabel" name="Text_2">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>560</y>
+      <width>151</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(7, 119, 197);
+font: 75 16pt &quot;Cambria&quot;;</string>
+    </property>
+    <property name="text">
+     <string>Apple</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="Text_3">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>600</y>
+      <width>151</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(7, 119, 197);
+font: 75 16pt &quot;Cambria&quot;;</string>
+    </property>
+    <property name="text">
+     <string>Banana</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="Text_4">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>630</y>
+      <width>151</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(7, 119, 197);
+font: 75 16pt &quot;Cambria&quot;;</string>
+    </property>
+    <property name="text">
+     <string>Grape</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="Text_5">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>670</y>
+      <width>151</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(7, 119, 197);
+font: 75 16pt &quot;Cambria&quot;;</string>
+    </property>
+    <property name="text">
+     <string>Mango</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="Text_6">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>710</y>
+      <width>151</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(7, 119, 197);
+font: 75 16pt &quot;Cambria&quot;;</string>
+    </property>
+    <property name="text">
+     <string>Strawberry</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="Text_7">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>500</y>
+      <width>361</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(7, 119, 197);
+font: 75 16pt &quot;Cambria&quot;;</string>
+    </property>
+    <property name="text">
+     <string>Confidence Percentages:</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="modelv23cb">
+    <property name="geometry">
+     <rect>
+      <x>820</x>
+      <y>250</y>
+      <width>151</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Cambria</family>
+      <pointsize>16</pointsize>
+      <weight>9</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(7, 119, 197);
+font: 75 16pt &quot;Cambria&quot;;</string>
+    </property>
+    <property name="text">
+     <string>Modelv2_3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="openDriveBtn">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>221</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(255, 255, 255);
+font: 75 16pt &quot;Cambria&quot;;
+background-color:rgb(7, 119, 197);
+border-radius:20px;
+</string>
+    </property>
+    <property name="text">
+     <string>Download Models</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="Text_8">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>80</y>
+      <width>361</width>
+      <height>181</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(7, 119, 197);
+font: 75 16pt &quot;Cambria&quot;;</string>
+    </property>
+    <property name="text">
+     <string>Download both the json and h5 files for the models you want to try out and place them in the 'res/models' directory then relaunch the app for their checkboxes to be enabled</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignJustify|Qt::AlignVCenter</set>
+    </property>
+    <property name="wordWrap">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="Text_9">
+    <property name="geometry">
+     <rect>
+      <x>920</x>
+      <y>10</y>
+      <width>181</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:600;&quot;&gt;Created by:&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:600;&quot;&gt;Anthony Amgad Fayek Selim : 19P9880&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(7, 119, 197);
+font: 75 16pt &quot;Cambria&quot;;</string>
+    </property>
+    <property name="text">
+     <string>Hover over me!</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignJustify|Qt::AlignVCenter</set>
+    </property>
+    <property name="wordWrap">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <zorder>predictBtn</zorder>
+   <zorder>browsePictureBtn</zorder>
+   <zorder>imgView</zorder>
+   <zorder>predictedText</zorder>
+   <zorder>modelv20cb</zorder>
+   <zorder>modelv21cb</zorder>
+   <zorder>modelv22cb</zorder>
+   <zorder>appleProgressBar</zorder>
+   <zorder>bananaProgressBar</zorder>
+   <zorder>grapeProgressBar</zorder>
+   <zorder>mangoProgressBar</zorder>
+   <zorder>strawberryProgressBar</zorder>
+   <zorder>Text_3</zorder>
+   <zorder>Text_6</zorder>
+   <zorder>Text_5</zorder>
+   <zorder>Text_4</zorder>
+   <zorder>Text_2</zorder>
+   <zorder>Text_7</zorder>
+   <zorder>modelv23cb</zorder>
+   <zorder>openDriveBtn</zorder>
+   <zorder>Text_8</zorder>
+   <zorder>Text_9</zorder>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
